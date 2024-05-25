@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { db, Certification } from "astro:db";
+
+const certifications = await db.select().from(Certification)
+---
+
+<Layout>
+    {
+        certifications.map(({label, description, href}) => (
+            <h1>{label}</h1>
+        ))
+    }
+</Layout>

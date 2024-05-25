@@ -1,0 +1,9 @@
+---
+const { label, href } = Astro.props
+const path = Astro.url.pathname
+---
+
+<a href={href} class={`text-center transition-colors font-medium py-4 cursor-pointer border-[#c501e2]
+    hover:bg-neutral-800 ${path == href && "border-b-2"}`}>
+    <span class="text-lg">{label}</span>
+</a>    

@@ -1,11 +1,8 @@
 ---
 import Base from './base.astro'
+import { GetPublicRepos } from '../../utils/github'
 
-const response = await fetch("https://api.github.com/users/LUISEDOCCOR")
-const data  = await response.json()
-const { public_repos } = data
-console.log(data)
-
+const public_repos  = await GetPublicRepos()
 ---
 
 <Base label={`Repos: ${public_repos}`}>

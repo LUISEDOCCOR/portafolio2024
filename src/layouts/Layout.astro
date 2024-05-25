@@ -4,6 +4,13 @@ import ButtonFollow from '../components/ButtonFollow.astro'
 import Birthday from '../components/tags/Birthday.astro';
 import Briefcase from '../components/tags/Briefcase.astro';
 import Repositories from '../components/tags/Repositories.astro';
+import Section from '../components/Section.astro';
+import ViewTransitions from 'astro/components/ViewTransitions.astro';
+import { getImageProfile } from '../utils/github'
+
+
+const  avatar_url = await getImageProfile()
+console.log(avatar_url)
 ---
 
 <!doctype html>
@@ -15,6 +22,7 @@ import Repositories from '../components/tags/Repositories.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Luis Eduardo</title>
+		<ViewTransitions/>
 	</head>
 	<body class="max-w-4xl mx-auto border-x-[.5px] min-h-screen border-neutral-700">
 		<header class="w-full">
@@ -35,7 +43,7 @@ import Repositories from '../components/tags/Repositories.astro';
 				<article class="px-8 -mt-16 flex justify-between items-end">
 					<picture>
 						<img 
-						src="./profile.webp" 
+						src={avatar_url}
 						alt="profile image"
 						class="w-40 h-40 object-cover object-center rounded-full aspect-square"
 					>
@@ -56,7 +64,17 @@ import Repositories from '../components/tags/Repositories.astro';
 				<Briefcase/>
 				<Repositories/>
 			</section>
+			<!-- Profile sections "Pages" -->
+			<section class="px-8 mt-6 grid grid-cols-4">
+				<Section label="Proyectos" href="/"/>
+				<Section label="Habilidades"/>
+				<Section label="Certificaciones" href="/certifications"/>
+				<Section label="Contacto"/>
+			</section>
 		</header>
+		<main class="px-8 mt-12">
+			<slot/>
+		</main>
 	</body>
 </html>
 <style is:global>
