@@ -1,14 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Posts from '../components/Posts.astro' 
+import Post from '../components/Post.astro' 
 import { db, Certification } from "astro:db";
 
 const certifications = await db.select().from(Certification)
 ---
 
 <Layout>
-    {
-        certifications.map(({label, description, href}) => (
-            <h1>{label}</h1>
-        ))
-    }
+    <Posts>
+        {
+            certifications.map(({label, description, href}, index) => (
+               <Post label={label} description={description} href={href} index={index}/> 
+            ))
+        }
+    </Posts>
 </Layout>

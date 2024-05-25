@@ -1,0 +1,20 @@
+---
+const {label, description, href, index} = Astro.props
+import { getImageProfile } from "../utils/github"; 
+const  avatar_url = await getImageProfile()
+---
+
+<article class={`border-x-2 border-b-[1px] ${index == 0 ? "border-t-2" : "border-t-[1px]"} p-3 border-neutral-700`}>
+    <section class="flex gap-2">
+        <img 
+        class="h-12 w-12 object-cover object-center rounded-full"
+        src={avatar_url} 
+        alt="profile image post"
+        >
+        <article>
+            <h4 class="text-lg font-bold">{label}</h4>
+            <p class="text-md">{description}</p>
+            <a href={href}>ver</a>
+        </article>
+    </section>
+</article>
