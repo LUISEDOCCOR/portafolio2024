@@ -1,7 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Posts from "../components/Posts.astro";
+import Post from "../components/Post.astro";
+import { db, Project } from "astro:db";
+
+const Projects = await db.select().from(Project)
 ---
 
 <Layout>
-<span>home</span>
+    <Posts>
+        {
+            Projects.map(({title, description, gtihub, preview}) => (
+                <Post label={title} description={description} href={preview != "none" ? preview : ""}>
+                    <section class="mt-4 mb-2 flex flex-col items-center gap-3">
+                        <img 
+                            src={`/projects/${title}.webp`} 
+                            alt={`image project ${title}`} 
+                            class="rounded-md w-3/4"
+                        />
+                       <div class="w-3/4">
+                            <a 
+                                class="bg-neutral-600 px-2 py-.5 text-lg rounded-full flex w-24 justify-center items-center border-2 border-transparent
+                                hover:border-neutral-600 hover:bg-[#151515] transition-colors" 
+                                href={gtihub} 
+                                target="_blank"
+                            >
+                                <span>Github</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                class="h-4 w-4 stroke-current" 
+                                viewBox="0 0 24 24" 
+                                stroke-width="1.5" fill="none" 
+                                stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M8.464 15.536l9.536 -9.536" />
+                                    <path d="M18 10v-4h-4" />
+                                    <path d="M8.414 15.586a2 2 0 1 0 -2.828 2.828a2 2 0 0 0 2.828 -2.828" />
+                                </svg>
+                            </a>
+                       </div>
+                    </section>
+                </Post>
+            ))
+        }
+    </Posts>
 </Layout>

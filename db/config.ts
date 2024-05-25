@@ -9,8 +9,24 @@ const Certification = defineTable({
   }
 })
 
+const Skill = defineTable({
+  columns: {
+    label: column.text(),
+    icon: column.text(),
+  }
+})
+
+const Project = defineTable({
+  columns: {
+    title: column.text(),
+    description: column.text(),
+    gtihub: column.text(),
+    preview: column.text()
+  }
+})
+
 
 // https://astro.build/db/config
 export default defineDb({
-  tables: { Certification }
+  tables: { Certification, Skill, Project }
 });

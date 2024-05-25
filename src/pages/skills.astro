@@ -1,7 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Post from "../components/Post.astro";
+import Posts from "../components/Posts.astro";
+//The "C" is added because the info is called the same way
+import CSkill from "../components/Skill.astro";
+import { db, Skill } from "astro:db";
+const skills = await db.select().from(Skill)
 ---
 
 <Layout>
-<span>home</span>
+    <Posts>
+        <Post label="Habilidades" description="Aquí están todas las tecnologías que sé usar 😶‍🌫️">
+            <section class="flex justify-center gap-4 mt-5 flex-wrap">
+                {
+                    skills.map(({label, icon}) => (
+                       <CSkill label={label} icon={icon}/> 
+                    ))
+                }
+            </section>
+        </Posts>
+    </Posts>
 </Layout>

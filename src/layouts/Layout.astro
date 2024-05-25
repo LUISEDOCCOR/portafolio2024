@@ -27,7 +27,7 @@ const  avatar_url = await getImageProfile()
 	<body class="max-w-4xl mx-auto border-x-[.5px] min-h-screen border-neutral-700">
 		<header class="w-full">
 			<!-- Profile name and @ -->
-			<section class="flex flex-col justify-center px-3 space-y-1 fixed h-20 w-[896px] backdrop-blur-xl">
+			<section class="flex flex-col justify-center px-3 space-y-1 fixed h-20 w-[896px] backdrop-blur-2xl">
 				<h2 class="font-semibold text-xl" >Luis Eduardo Ocegueda Cortes</h2>
 				<h3 class="text-neutral-400">{public_repos} Repos</h3>
 			</section>
@@ -72,7 +72,7 @@ const  avatar_url = await getImageProfile()
 				<Section label="Contacto" href="/contact"/>
 			</section>
 		</header>
-		<main class="mt-8 mb-12">
+		<main class="mt-8 pb-12">
 			<slot/>
 		</main>
 	</body>

@@ -8,21 +8,21 @@ const  avatar_url = await getImageProfile()
 
 <article class={`border-b-[1px] ${index == 0 ? "border-t-2" : "border-t-[1px]"} px-8 pt-4 pb-6 
     border-neutral-700 hover:bg-neutral-800 transition-colors`}>
-    <section class="flex gap-4">
+    <header class="flex gap-4">
         <img 
         class="h-12 w-12 object-cover object-center rounded-full"
         src={avatar_url} 
         alt="profile image post"
         >
-        <article>
+        <section>
             <h4 class="text-xl font-bold">{label}</h4>
             <p class="text-lg">{description}</p>
-        </article>
-    </section>
-    <section>
+        </section>
+    </header>
+    <main>
         <slot/>
-    </section>
-    <section class="flex gap-2 justify-end text-neutral-500">
+    </main>
+    <footer class="flex gap-2 justify-end text-neutral-500">
         {
             href && (
             <a href={href} target="_blank" aria-label={label}>
@@ -45,5 +45,5 @@ const  avatar_url = await getImageProfile()
             )
         }
         <ButtonLike client:visible/>
-    </section>
+    </footer>
 </article>

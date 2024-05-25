@@ -5,7 +5,7 @@ export const ButtonLike = () => {
    const [isCliked, setClick] = useState(false)
 
     return (
-    <button onClick={() => {setClick(!isCliked)}}>
+    <button aria-label="give like" onClick={() => {setClick(!isCliked)}}>
         <svg xmlns="http://www.w3.org/2000/svg" 
         class={`stroke-current h-6 w-6 cursor-pointer btn-like hover:stroke-neutral-400 transition-colors
         ${isCliked && "fill-[#d50daa] stroke-none"}`} 
