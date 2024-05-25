@@ -1,9 +1,9 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+import '@fontsource-variable/dm-sans';
+import ButtonFollow from '../components/ButtonFollow.astro'
+import Birthday from '../components/tags/Birthday.astro';
+import Briefcase from '../components/tags/Briefcase.astro';
+import Repositories from '../components/tags/Repositories.astro';
 ---
 
 <!doctype html>
@@ -14,10 +14,49 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>Luis Eduardo</title>
 	</head>
-	<body>
-		<slot />
+	<body class="max-w-4xl mx-auto border-x-[.5px] min-h-screen border-neutral-700">
+		<header class="w-full">
+			<!-- Profile name and @ -->
+			<section class="flex flex-col justify-center px-3 space-y-1 fixed h-20 w-[896px]">
+				<h2 class="font-semibold text-xl" >Luis Eduardo Ocegueda Cortes</h2>
+				<h3 class="text-neutral-400">Luisedoccor</h3>
+			</section>
+			<!-- Banner / Image Profile -->
+			<section class="pt-20">
+				<picture>
+					<img 
+					src="./banner.webp" 
+					alt="banner image"
+					class="w-full h-[250px] object-cover object-center rounded-sm"
+					>
+				</picture>
+				<article class="px-8 -mt-16 flex justify-between items-end">
+					<picture>
+						<img 
+						src="./profile.webp" 
+						alt="profile image"
+						class="w-40 h-40 object-cover object-center rounded-full aspect-square"
+					>
+					</picture>
+					<ButtonFollow/>
+				</article>
+			</section>
+			<!-- Info profile -->
+			<section class="px-8 mt-8">
+				<h1 class="text-3xl font-bold">Luis Eduardo Ocegueda Cortes</h1>
+				<h3 class="text-neutral-400 text-lg">@Programador web</h3>
+				<p class="text-xl mt-4">+2 de experiencia. Desarrollador 
+				<strong class="text-[#c501e2]">Front-end</strong> y <strong class="text-[#c501e2]">Back-end</strong>
+				autodidacta. Entusiasta en la programación.</p>
+			</section>
+			<section class="px-8 mt-4 flex items-center gap-3">
+				<Birthday/>
+				<Briefcase/>
+				<Repositories/>
+			</section>
+		</header>
 	</body>
 </html>
 <style is:global>
@@ -31,10 +70,11 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
+		color-scheme: dark ligth;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+		font-family: 'DM Sans Variable', sans-serif;
+		background: #151515;
 		background-size: 224px;
 	}
 	code {

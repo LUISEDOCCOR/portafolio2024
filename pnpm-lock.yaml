@@ -14,6 +14,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.9.1(@types/node@20.12.12))(tailwindcss@3.4.3)
+      '@fontsource-variable/dm-sans':
+        specifier: ^5.0.6
+        version: 5.0.6
       astro:
         specifier: ^4.9.1
         version: 4.9.1(@types/node@20.12.12)
@@ -445,6 +448,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/dm-sans@5.0.6':
+    resolution: {integrity: sha512-+CNVseJRlYGB4gUZ2L7yTeCHHBKAMVVhqUz85nb/OoU0hketJrWCHOUJwF5W2MpZCeE0JqJmDFAsEdx8znkrGw==}
 
   '@img/sharp-darwin-arm64@0.33.4':
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
@@ -1456,7 +1462,6 @@ packages:
 
   libsql@0.3.18:
     resolution: {integrity: sha512-lvhKr7WV3NLWRbXkjn/MeKqXOAqWKU0PX9QYrvDh7fneukapj+iUQ4qgJASrQyxcCrEsClXCQiiK5W6OoYPAlA==}
-    cpu: [x64, arm64, wasm32]
     os: [darwin, linux, win32]
 
   lilconfig@2.1.0:
@@ -2672,6 +2677,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.3':
     optional: true
+
+  '@fontsource-variable/dm-sans@5.0.6': {}
 
   '@img/sharp-darwin-arm64@0.33.4':
     optionalDependencies:
