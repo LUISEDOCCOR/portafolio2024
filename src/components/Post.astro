@@ -1,20 +1,49 @@
 ---
 const {label, description, href, index} = Astro.props
 import { getImageProfile } from "../utils/github"; 
+import { ButtonLike } from "./ButtonLike";
+
 const  avatar_url = await getImageProfile()
 ---
 
-<article class={`border-x-2 border-b-[1px] ${index == 0 ? "border-t-2" : "border-t-[1px]"} p-3 border-neutral-700`}>
-    <section class="flex gap-2">
+<article class={`border-b-[1px] ${index == 0 ? "border-t-2" : "border-t-[1px]"} px-8 pt-4 pb-6 
+    border-neutral-700 hover:bg-neutral-800 transition-colors`}>
+    <section class="flex gap-4">
         <img 
         class="h-12 w-12 object-cover object-center rounded-full"
         src={avatar_url} 
         alt="profile image post"
         >
         <article>
-            <h4 class="text-lg font-bold">{label}</h4>
-            <p class="text-md">{description}</p>
-            <a href={href}>ver</a>
+            <h4 class="text-xl font-bold">{label}</h4>
+            <p class="text-lg">{description}</p>
         </article>
+    </section>
+    <section>
+        <slot/>
+    </section>
+    <section class="flex gap-2 justify-end text-neutral-500">
+        {
+            href && (
+            <a href={href} target="_blank" aria-label={label}>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    class=" stroke-current h-6 w-6 hover:stroke-neutral-400 transition-colors" 
+                    width="44" height="44" 
+                    viewBox="0 0 24 24" 
+                    stroke-width="1.5" 
+                    fill="none" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"
+                >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 15l6 -6" />
+                    <path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464" />
+                    <path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463" />
+                </svg>
+             </a>
+
+            )
+        }
+        <ButtonLike client:visible/>
     </section>
 </article>

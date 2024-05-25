@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Posts from "../components/Posts.astro";
+import Post from "../components/Post.astro";
+---
+
+<Layout>
+    <Posts>
+        <Post label="Contacto" description="Hablemos un rato, mándame un mensaje">
+            <form action="https://formspree.io/f/xrgnvoqe" method="post" 
+                class="flex flex-col items-center mt-5 gap-3"
+            >
+                    <input 
+                        class="w-full max-w-xl border-[1px] border-neutral-600 h-12 rounded-xl
+                        text-xl outline-none px-2" 
+                        type="text"
+                        placeholder="Nombre"
+                        required
+                        name="name"
+                        aria-label="Nombre"
+                    >
+                    <input 
+                        class="w-full max-w-xl border-[1px] border-neutral-600 h-12 rounded-xl
+                        text-xl outline-none px-2" 
+                        type="email"
+                        placeholder="Correo"
+                        required
+                        name="email"
+                        aria-label="Correo"
+                    >
+                    <textarea 
+                        name="content"
+                        class="w-full max-w-xl border-[1px] border-neutral-600 h-32 rounded-xl
+                        text-xl outline-none p-2"
+                        required
+                        placeholder="Mensaje"
+                        aria-label="Mensaje"
+                    ></textarea>
+                    <div class="flex justify-end w-full max-w-xl">
+                        <button class="border-[1px] border-neutral-600 h-12 rounded-lg
+                        text-xl outline-none px-2 bg-[#151515] hover:border-transparent hover:bg-neutral-600
+                        transition-colors" 
+                        type="submit">Enviar</button>
+                    </div>
+            </form>
+        </Post>
+    </Posts>
+</Layout>

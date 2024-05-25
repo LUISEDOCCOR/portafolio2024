@@ -7,8 +7,9 @@ import Repositories from '../components/tags/Repositories.astro';
 import Section from '../components/Section.astro';
 import ViewTransitions from 'astro/components/ViewTransitions.astro';
 import { getImageProfile } from '../utils/github'
+import { GetPublicRepos } from '../utils/github';
 
-
+const public_repos = await GetPublicRepos()
 const  avatar_url = await getImageProfile()
 ---
 
@@ -26,9 +27,9 @@ const  avatar_url = await getImageProfile()
 	<body class="max-w-4xl mx-auto border-x-[.5px] min-h-screen border-neutral-700">
 		<header class="w-full">
 			<!-- Profile name and @ -->
-			<section class="flex flex-col justify-center px-3 space-y-1 fixed h-20 w-[896px]">
+			<section class="flex flex-col justify-center px-3 space-y-1 fixed h-20 w-[896px] backdrop-blur-xl">
 				<h2 class="font-semibold text-xl" >Luis Eduardo Ocegueda Cortes</h2>
-				<h3 class="text-neutral-400">Luisedoccor</h3>
+				<h3 class="text-neutral-400">{public_repos} Repos</h3>
 			</section>
 			<!-- Banner / Image Profile -->
 			<section class="pt-20">
@@ -66,12 +67,12 @@ const  avatar_url = await getImageProfile()
 			<!-- Profile sections "Pages" -->
 			<section class="px-8 mt-6 grid grid-cols-4">
 				<Section label="Proyectos" href="/"/>
-				<Section label="Habilidades"/>
+				<Section label="Habilidades" href="/skills"/>
 				<Section label="Certificaciones" href="/certifications"/>
-				<Section label="Contacto"/>
+				<Section label="Contacto" href="/contact"/>
 			</section>
 		</header>
-		<main class="px-8 mt-12">
+		<main class="mt-8 mb-12">
 			<slot/>
 		</main>
 	</body>
