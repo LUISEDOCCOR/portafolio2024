@@ -37,15 +37,15 @@ const  avatar_url = await getImageProfile()
 					<img 
 					src="./banner.webp" 
 					alt="banner image"
-					class="w-full h-[250px] object-cover object-center rounded-sm"
+					class="w-full object-cover object-center rounded-sm h-[150px] xl:h-[250px]"
 					>
 				</picture>
-				<article class="px-8 -mt-16 flex justify-between items-end">
+				<article class="px-8 flex justify-between items-end -mt-12 xl:-mt-16">
 					<picture>
 						<img 
 						src={avatar_url}
 						alt="profile image"
-						class="w-40 h-40 object-cover object-center rounded-full aspect-square"
+						class="object-cover object-center rounded-full aspect-square w-28 h-28 xl:w-40 xl:h-40"
 					>
 					</picture>
 					<ButtonFollow/>
@@ -53,19 +53,20 @@ const  avatar_url = await getImageProfile()
 			</section>
 			<!-- Info profile -->
 			<section class="px-8 mt-8">
-				<h1 class="text-3xl font-bold">Luis Eduardo Ocegueda Cortes</h1>
-				<h3 class="text-neutral-400 text-lg">@Programador web</h3>
+				<h1 class="font-bold text-2xl xl:text-3xl">Luis Eduardo Ocegueda Cortes</h1>
+				<h3 class="text-neutral-400 text-md xl:text-lg">@Programador web</h3>
 				<p class="text-xl mt-4">+2 de experiencia. Desarrollador 
 				<strong class="text-[#c501e2]">Front-end</strong> y <strong class="text-[#c501e2]">Back-end</strong>
 				autodidacta. Entusiasta en la programación.</p>
 			</section>
-			<section class="px-8 mt-4 flex items-center gap-3">
+			<!-- Tags profile -->
+			<section class="px-8 mt-4 flex items-center gap-3 flex-wrap">
 				<Birthday/>
 				<Briefcase/>
 				<Repositories/>
 			</section>
 			<!-- Profile sections "Pages" -->
-			<section class="px-8 mt-6 grid grid-cols-4">
+			<section class="px-8 grid mt-4 grid-cols-2 xl:grid-cols-4 xl:mt-6">
 				<Section label="Proyectos" href="/"/>
 				<Section label="Habilidades" href="/skills"/>
 				<Section label="Certificaciones" href="/certifications"/>
