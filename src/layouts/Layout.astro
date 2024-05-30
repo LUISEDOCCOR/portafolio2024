@@ -14,7 +14,10 @@ const  avatar_url = await getImageProfile()
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="absolute inset-0 h-full w-full bg-[#151515] 
+	bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] 
+	bg-[size:24px_24px] bg-fixed"
+>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -24,7 +27,7 @@ const  avatar_url = await getImageProfile()
 		<title>Luis Eduardo</title>
 		<ViewTransitions/>
 	</head>
-	<body class="max-w-4xl mx-auto border-x-[.5px] min-h-screen border-neutral-700">
+	<body class="max-w-4xl mx-auto border-x-[.5px] min-h-screen border-neutral-700 bg-[#151515]">
 		<header class="w-full">
 			<!-- Profile name and @ -->
 			<section class="flex flex-col justify-center px-3 space-y-1 fixed h-20 w-[896px] backdrop-blur-2xl">
@@ -73,7 +76,7 @@ const  avatar_url = await getImageProfile()
 				<Section label="Contacto" href="/contact"/>
 			</section>
 		</header>
-		<main class="mt-8 pb-12">
+		<main class="mt-8 pb-12 w-full">
 			<slot/>
 		</main>
 	</body>
@@ -93,7 +96,6 @@ const  avatar_url = await getImageProfile()
 	}
 	html {
 		font-family: 'DM Sans Variable', sans-serif;
-		background: #151515;
 		background-size: 224px;
 	}
 	code {
